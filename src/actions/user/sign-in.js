@@ -1,5 +1,6 @@
 import { replace } from 'react-router-redux'
 import ApiClient from '../../api/client'
+import { connect, disconnect } from '../websocket'
 import {
   APP_LOADING,
   APP_DONE_LOADING,
@@ -11,9 +12,9 @@ export const USER_SIGNED_IN = 'USER_SIGNED_IN'
 
 const api = new ApiClient()
 
+
 export default (user) => {
 
-  console.log(user)
   return dispatch => {
     dispatch({ type: APP_LOADING })
 
@@ -22,11 +23,12 @@ export default (user) => {
     .then((res)=>{
       api.storeToken(res.body.token)
 
+      dispatch(connect())
       api.get('users/me')
         .then((user)=> {
           dispatch({ type: APP_DONE_LOADING })
           dispatch({ type: LOAD_SUCCESS })
-          dispatch(replace('/'))
+          dispatch(replace('/'))  //like push but dispatch is used
           dispatch({
             type: USER_SIGNED_IN,
             payload: user.body
