@@ -46,17 +46,16 @@ class GameContainer extends PureComponent {
   //   return false
   // }
   //
-  renderTiles = (game, index) => {
+  renderTiles = (tile, index) => {
 
     return (
       <Tile
-        key={index}
+        key={index} tile={tile} gameId={this.props.match.params.gameId}
       />
     )
   }
 
   render() {
-    console.log('props: ',this.props);
     const { game } = this.props
     if ( !game ) return null
     // const { game } = this.props.games
