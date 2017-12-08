@@ -1,11 +1,16 @@
-import { CREATED_GAME } from '../actions/games/create'
-import { FETCHED_GAMES, FETCH_ONE_GAME } from '../actions/games/fetch'
 
+import { FETCHED_GAMES, FETCH_ONE_GAME } from '../actions/games/fetch'
+import {
+  GAME_CREATED,
+  GAME_UPDATED,
+  GAME_REMOVED,
+  GAME_PLAYERS_UPDATED,
+} from '../actions/games/subscribe'
 
 export default (state=[], {type, payload} ={}) => {
   // console.log('>>> REDUCER = CALLED: TYPE: ', type);
   switch(type) {
-    case CREATED_GAME :
+    case GAME_CREATED :
       return [{ ...payload}].concat(state)
       // return [...state, {...payload}]
     case FETCHED_GAMES :

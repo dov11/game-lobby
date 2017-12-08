@@ -1,8 +1,9 @@
 import ApiClient from '../../api/client'
 import { loading } from '../loading'
 import { LOAD_ERROR } from '../loading'
-
-export const CREATED_GAME = 'CREATED_GAME'
+import {
+  GAME_CREATED,
+} from './subscribe'
 
 const api = new ApiClient()
 
