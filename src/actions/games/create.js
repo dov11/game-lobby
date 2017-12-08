@@ -1,4 +1,6 @@
 import ApiClient from '../../api/client'
+import { push } from 'react-router-redux'
+
 import { loading } from '../loading'
 import { LOAD_ERROR } from '../loading'
 import {
@@ -14,6 +16,8 @@ export default ()=> {
     .then(res => {
         // dispatch({type: CREATED_GAME, payload: res.body})
         dispatch({type: loading(false).type})
+        const newGameId = res.body._id
+        dispatch(push(`game/${newGameId}`))
       })
       .catch(err => dispatch({type: LOAD_ERROR, payload: err}))
   }

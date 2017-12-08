@@ -33,6 +33,7 @@ class Lobby extends PureComponent {
   }
 
   renderGame = (game, index) => {
+    console.log(game);
     let ActionIcon = this.isJoinable(game) ? JoinGameIcon : WatchGameIcon
     if (this.isPlayer(game)) ActionIcon = game.isPlayable ? PlayGameIcon : WaitingIcon
 
