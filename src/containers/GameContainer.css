@@ -1,3 +1,10 @@
+.GameContainer {
+  margin: auto;
+  text-align: center; }
+
 .Grid {
-  width: 30em;
-  margin: auto; }
+  width: 450px;
+  margin: auto auto 100px; }
+
+.GameContainer .LeaveGame {
+  margin-top: 100px; }

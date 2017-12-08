@@ -11,6 +11,7 @@ import { fetchOneGame } from '../actions/games/fetch'
 // import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
 // import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import Tile from '../components/games/Tile'
+import LeaveGame from '../components/games/LeaveGame'
 import './GameContainer.css'
 
 
@@ -41,11 +42,11 @@ class GameContainer extends PureComponent {
   //   return true
   // }
   //
-  // isPlayer(game) {
-  //   // implement later
-  //   return false
-  // }
-  //
+  leaveGame() {
+    console.log('leave game');
+    return false
+  }
+
   renderTiles = (tile, index) => {
 
     return (
@@ -63,6 +64,7 @@ class GameContainer extends PureComponent {
       <div className="GameContainer">
         <h1>GameContainer!</h1>
         <div className="Grid grid-3x3">{ game.grid.map(this.renderTiles) }</div>
+        <LeaveGame onClick={this.leaveGame} />
       </div>
     )
   }

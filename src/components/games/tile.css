@@ -1,12 +1,13 @@
 .grid-3x3 .Tile {
-  width: 10em;
-  height: 10em;
-  line-height: 10em; }
+  width: 150px;
+  height: 150px;
+  line-height: 150px; }
 
 .Tile {
   display: inline-block;
-  text-align: center;
   box-shadow: 1px 1px 10px #b5b5b5;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center; }
   .Tile:hover {
     background: #c6c6c6; }
