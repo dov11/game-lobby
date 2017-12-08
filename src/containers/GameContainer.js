@@ -11,7 +11,8 @@ import { fetchOneGame } from '../actions/games/fetch'
 // import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
 // import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import Tile from '../components/games/Tile'
-// import './GameContainer.css'
+import './GameContainer.css'
+
 
 class GameContainer extends PureComponent {
 
@@ -61,7 +62,7 @@ class GameContainer extends PureComponent {
     return (
       <div className="GameContainer">
         <h1>GameContainer!</h1>
-        { game.grid.map(this.renderTiles) }
+        <div className="Grid grid-3x3">{ game.grid.map(this.renderTiles) }</div>
       </div>
     )
   }
