@@ -1,9 +1,16 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import patch from '../../actions/games/patch'
+import MineIcon from 'material-ui/svg-icons/device/brightness-high';
+import FlatButton from 'material-ui/FlatButton';
+
 import './tile.css'
 
 class Tile extends PureComponent {
+  renderContent = () => {
+    if (this.props.tile.content=="-1") return null
+    return this.props.tile.content
+  }
   clickTile() {
     const tile = {
       ...this.props.tile,
@@ -12,13 +19,13 @@ class Tile extends PureComponent {
     this.props.patch(tile, this.props.gameId)
   }
   render() {
-    console.log(this.props.tile)
     return (
-      <button className="Tile"
+      <FlatButton className="Tile"
         onClick={this.clickTile.bind(this)}
+        icon={this.props.tile.clicked!=="false"&&this.props.tile.content=="-1"&&<MineIcon/>}
         >
-				&nbsp;{this.props.tile.clicked!=="false" ? this.props.tile.content : null}&nbsp;
-      </button>
+				&nbsp;{this.props.tile.clicked!=="false" ? this.renderContent() : null}&nbsp;
+      </FlatButton>
     )
   }
 }
