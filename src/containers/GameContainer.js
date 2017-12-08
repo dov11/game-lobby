@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 // import { disconnect } from '../actions/websocket'
 // import { connect as connectToSocket } from '../actions/websocket'
-import fetchOneGame from '../actions/games/fetch'
+import { fetchOneGame } from '../actions/games/fetch'
 // import CreateGameButton from '../components/games/CreateGameButton'
 // import Paper from 'material-ui/Paper'
 // import Menu from 'material-ui/Menu'
@@ -16,7 +16,7 @@ import Tile from '../components/games/Tile'
 class GameContainer extends PureComponent {
   componentWillMount() {
     const gameId = this.props.match.params.gameId
-    // console.log('gameId:', gameId);
+    console.log('gameId:', gameId);
     this.props.fetchOneGame(gameId)
     // this.props.connectToSocket()
   }
