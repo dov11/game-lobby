@@ -17,7 +17,7 @@ class Tile extends PureComponent {
       <button className="Tile"
         onClick={this.clickTile.bind(this)}
         >
-				&nbsp;{this.props.tile.content}&nbsp;
+				&nbsp;{this.props.tile.clicked!=="false" ? this.props.tile.content : null}&nbsp;
       </button>
     )
   }

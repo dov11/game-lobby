@@ -15,7 +15,7 @@ export default (tile, gameId)=> {
     console.log(body)
     api.patch(`games/${gameId}`, body)
     .then(res => {
-        dispatch({type: GAME_UPDATED, payload: res.body})
+        // dispatch({type: GAME_UPDATED, payload: res.body})
         dispatch({type: loading(false).type})
       })
       .catch(err => dispatch({type: LOAD_ERROR, payload: err}))

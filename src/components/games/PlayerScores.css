@@ -1,0 +1,24 @@
+.PlayerScores {
+  width: 500px;
+  margin: 10px auto 40px;
+  text-align: left;
+  background-color: #c1c1c1; }
+  .PlayerScores ul {
+    margin: 0;
+    padding: 20px; }
+  .PlayerScores li {
+    margin: 10px 0;
+    list-style: none; }
+  .PlayerScores .header-player {
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 30px; }
+  .PlayerScores .player-name, .PlayerScores .player-score {
+    display: inline-block; }
+  .PlayerScores .player-name {
+    color: #202020;
+    width: 74%; }
+  .PlayerScores .player-score {
+    width: 25%;
+    color: #202020;
+    text-align: right; }
