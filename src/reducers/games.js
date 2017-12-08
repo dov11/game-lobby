@@ -17,8 +17,12 @@ export default (state=[], {type, payload} ={}) => {
       return [{ ...payload}].concat(state)
       // return [...state, {...payload}]
     case GAME_UPDATED :
-      console.log('GAME_UPDATED in REDUCER');
-      return [...payload]
+    return state.map((game) => {
+      if (game._id === payload._id) {
+        return { ...payload }
+      }
+      return game
+})
 
     case FETCHED_GAMES :
       return [...payload]
