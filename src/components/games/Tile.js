@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import './tile.css'
 
 class Tile extends PureComponent {
   render() {
