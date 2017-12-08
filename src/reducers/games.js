@@ -16,6 +16,10 @@ export default (state=[], {type, payload} ={}) => {
     case GAME_CREATED :
       return [{ ...payload}].concat(state)
       // return [...state, {...payload}]
+    case GAME_UPDATED :
+      console.log('GAME_UPDATED in REDUCER');
+      return [...payload]
+
     case FETCHED_GAMES :
       return [...payload]
 
