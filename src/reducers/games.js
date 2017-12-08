@@ -1,5 +1,8 @@
+import {
+  FETCHED_GAMES,
+  FETCH_ONE_GAME,
+} from '../actions/games/fetch'
 
-import { FETCHED_GAMES, FETCH_ONE_GAME } from '../actions/games/fetch'
 import {
   GAME_CREATED,
   GAME_UPDATED,
