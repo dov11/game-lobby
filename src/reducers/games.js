@@ -6,6 +6,7 @@ export default (state=[], {type, payload} ={}) => {
   switch(type) {
     case CREATED_GAME :
       return [{ ...payload}].concat(state)
+      // return [...state, {...payload}]
     case FETCHED_GAMES :
       return [...payload]
     default :
