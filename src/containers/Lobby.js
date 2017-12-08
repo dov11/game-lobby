@@ -11,6 +11,7 @@ import WatchGameIcon from 'material-ui/svg-icons/image/remove-red-eye'
 import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
 import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import WaitingIcon from 'material-ui/svg-icons/image/timelapse'
+import { push } from 'react-router-redux'
 import './Lobby.css'
 
 class Lobby extends PureComponent {
@@ -19,9 +20,7 @@ class Lobby extends PureComponent {
     this.props.connectToSocket()
   }
 
-  goToGame = (gameId) => {
-    // implement later
-  }
+  goToGame = gameId => event => this.props.push(`/game/${gameId}`)
 
   isJoinable(game) {
     // implement later
@@ -63,4 +62,4 @@ class Lobby extends PureComponent {
 
 const mapStateToProps = ({ games }) => ({ games })
 
-export default connect(mapStateToProps, { fetchGames, connectToSocket })(Lobby)
+export default connect(mapStateToProps, { fetchGames, connectToSocket, push })(Lobby)
