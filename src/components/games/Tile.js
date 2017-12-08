@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import patch from '../../actions/games/patch'
-
+import './tile.css'
 
 class Tile extends PureComponent {
   clickTile() {

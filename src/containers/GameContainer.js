@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 // import { disconnect } from '../actions/websocket'
-// import { connect as connectToSocket } from '../actions/websocket'
+import { connect as connectToSocket } from '../actions/websocket'
 import { fetchOneGame } from '../actions/games/fetch'
 // import CreateGameButton from '../components/games/CreateGameButton'
 // import Paper from 'material-ui/Paper'
@@ -11,7 +11,8 @@ import { fetchOneGame } from '../actions/games/fetch'
 // import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
 // import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import Tile from '../components/games/Tile'
-// import './GameContainer.css'
+import './GameContainer.css'
+
 
 class GameContainer extends PureComponent {
 
@@ -22,6 +23,7 @@ class GameContainer extends PureComponent {
     if (!game) {
       this.props.fetchOneGame(gameId)
     }
+    this.props.connectToSocket()
     // this.props.connectToSocket()
   }
 
@@ -60,7 +62,7 @@ class GameContainer extends PureComponent {
     return (
       <div className="GameContainer">
         <h1>GameContainer!</h1>
-        { game.grid.map(this.renderTiles) }
+        <div className="Grid grid-3x3">{ game.grid.map(this.renderTiles) }</div>
       </div>
     )
   }
@@ -80,5 +82,5 @@ const mapStateToProps = ({ currentUser, games }, { match }) => {
   }
 }
 //
-export default connect(mapStateToProps, { fetchOneGame })(GameContainer)
+export default connect(mapStateToProps, { fetchOneGame, connectToSocket })(GameContainer)
 // export default GameContainer
