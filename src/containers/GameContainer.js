@@ -60,11 +60,12 @@ class GameContainer extends PureComponent {
   render() {
     const { game } = this.props
     if ( !game ) return null
+    // console.log('game:',game);
 
     return (
       <div className="GameContainer">
         <h1>GameContainer!</h1>
-        <PlayerScores player={game.players} />
+        <PlayerScores currentUser={this.props.currentUser} players={game.players} />
         <div className="Grid grid-3x3">{ game.grid.map(this.renderTiles) }</div>
         <LeaveGame onClick={this.leaveGame} gameId={this.props.match.params.gameId} />
       </div>

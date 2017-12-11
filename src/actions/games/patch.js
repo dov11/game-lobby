@@ -11,7 +11,7 @@ export default (bodyAction, gameId)=> {
   return (dispatch, getState) => {
     const { currentUser } = getState()
     dispatch(loading(true))
-    const bodyRequest={...bodyAction, userId: currentUser._id}
+    const bodyRequest={...bodyAction, userId: currentUser._id, userName: currentUser.name}
     api.patch(`games/${gameId}`, bodyRequest)
     .then(res => {
         // dispatch({type: GAME_UPDATED, payload: res.body})
