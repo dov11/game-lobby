@@ -22,3 +22,12 @@ export default (tile, gameId)=> {
 
   }
 }
+
+// body {
+// 	user: userId,
+// 	user_action: user_joined
+// }
+// body {
+// 	user: userId,
+// 	user_action: user_left
+// }
