@@ -7,6 +7,7 @@ import CreateGameButton from '../components/games/CreateGameButton'
 import Paper from 'material-ui/Paper'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
+import {List, ListItem} from 'material-ui/List'
 import WatchGameIcon from 'material-ui/svg-icons/image/remove-red-eye'
 import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
 import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
@@ -52,12 +53,17 @@ class Lobby extends PureComponent {
     let ActionIcon = this.isJoinable(game) ? JoinGameIcon : WatchGameIcon
     if (this.isPlayer(game)) ActionIcon = game.isPlayable ? PlayGameIcon : WaitingIcon
 
+    let secondayText = game.players.length + ' player'
+    if (game.players.length != 1) secondayText += 's'
+
     return (
-      <MenuItem
+      <ListItem
         key={index}
         onClick={this.goToGame(game._id)}
         rightIcon={<ActionIcon />}
-        primaryText={game.title} />
+        primaryText={'Minesweeper #' + game._id.replace(/[a-z]/g,'').substr(game._id.replace(/[a-z]/g), 5)}
+        secondaryText={secondayText}
+        />
     )
   }
 
@@ -67,9 +73,9 @@ class Lobby extends PureComponent {
         <h1>Lobby!</h1>
         <CreateGameButton />
         <Paper className="paper">
-          <Menu>
+          <List>
             { this.props.games.map(this.renderGame)}
-          </Menu>
+          </List>
         </Paper>
       </div>
     )
