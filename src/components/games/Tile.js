@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import patch from '../../actions/games/patch'
+import patchGame from '../../actions/games/patch'
 import MineIcon from 'material-ui/svg-icons/device/brightness-high';
 import FlatButton from 'material-ui/FlatButton';
 
@@ -16,7 +16,7 @@ class Tile extends PureComponent {
       ...this.props.tile,
       clicked: true
     }
-    this.props.patch(bodyAction, this.props.gameId)
+    this.props.patchGame(bodyAction, this.props.gameId)
   }
   render() {
     return (
@@ -30,5 +30,5 @@ class Tile extends PureComponent {
   }
 }
 
-const mapDispatchtoProps = {patch: patch}
+const mapDispatchtoProps = {patchGame: patchGame}
 export default connect(null, mapDispatchtoProps)(Tile)
