@@ -11,13 +11,13 @@
     list-style: none; }
   .PlayerScores .header-player {
     font-weight: bold;
-    text-decoration: underline;
     margin-bottom: 30px; }
   .PlayerScores .player-name, .PlayerScores .player-score {
-    display: inline-block; }
+    display: inline-block;
+    margin-left: -4px; }
   .PlayerScores .player-name {
     color: #202020;
-    width: 74%; }
+    width: 75%; }
   .PlayerScores .player-score {
     width: 25%;
     color: #202020;
