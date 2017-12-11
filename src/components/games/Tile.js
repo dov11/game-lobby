@@ -22,7 +22,7 @@ class Tile extends PureComponent {
     return (
       <FlatButton className="Tile"
         onClick={this.clickTile.bind(this)}
-        disabled={this.props.tile.clicked!=="false"?"true":""}
+        disabled={this.props.tile.clicked!=="false"?true:""}
         icon={this.props.tile.clicked!=="false"&&this.props.tile.content=="-1"&&<MineIcon/>}
         >
 				&nbsp;{this.props.tile.clicked!=="false" ? this.renderContent() : null}&nbsp;
