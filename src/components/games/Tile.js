@@ -12,11 +12,11 @@ class Tile extends PureComponent {
     return this.props.tile.content
   }
   clickTile() {
-    const tile = {
+    const bodyAction = {
       ...this.props.tile,
       clicked: true
     }
-    this.props.patch(tile, this.props.gameId)
+    this.props.patch(bodyAction, this.props.gameId)
   }
   render() {
     return (
