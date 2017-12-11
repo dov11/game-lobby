@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 // import { disconnect } from '../actions/websocket'
 import { connect as connectToSocket } from '../actions/websocket'
 import { fetchOneGame } from '../actions/games/fetch'
+import patchGame from '../actions/games/patch'
 // import CreateGameButton from '../components/games/CreateGameButton'
 // import Paper from 'material-ui/Paper'
 // import Menu from 'material-ui/Menu'
@@ -22,7 +23,19 @@ class GameContainer extends PureComponent {
     const { game } = this.props
     const gameId = this.props.match.params.gameId
     // console.log('gameId:', gameId);
+
+    const bodyAction = {
+    	user_action: 'user_joined'
+    }
+    this.props.patchGame(bodyAction, gameId)
+
+    // .then() {
+    //
+    // }
+    //
     this.props.fetchOneGame(gameId)
+
+
     this.props.connectToSocket()
     // this.props.connectToSocket()
   }
@@ -64,7 +77,7 @@ class GameContainer extends PureComponent {
         <h1>GameContainer!</h1>
         <PlayerScores player={game.players} />
         <div className="Grid grid-3x3">{ game.grid.map(this.renderTiles) }</div>
-        <LeaveGame onClick={this.leaveGame} />
+        <LeaveGame onClick={this.leaveGame} gameId={this.props.match.params.gameId} />
       </div>
     )
   }
@@ -83,6 +96,12 @@ const mapStateToProps = ({ currentUser, games }, { match }) => {
     // isJoinable: game && !currentPlayer && game.players.length < 2
   }
 }
-//
-export default connect(mapStateToProps, { fetchOneGame, connectToSocket })(GameContainer)
+
+const mapDispatchtoProps = {
+  patchGame: patchGame,
+  fetchOneGame,
+  connectToSocket
+}
+
+export default connect(mapStateToProps, mapDispatchtoProps)(GameContainer)
 // export default GameContainer
