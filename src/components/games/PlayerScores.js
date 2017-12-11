@@ -7,7 +7,7 @@ class PlayerScores extends PureComponent {
 	// renderPlayers = (player, score, index) {
 	renderPlayers = (player, index) => {
 		return (
-			<li key={index} className="player"><span className="player-name">{player._id}</span> <span className="player-score">??</span></li>
+			<li key={index} className="player"><span className="player-name">{player._id}</span> <span className="player-score">{player.score}</span></li>
 		)
 	}
   render() {
