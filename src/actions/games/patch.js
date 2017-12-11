@@ -11,8 +11,7 @@ export default (tile, gameId)=> {
   return (dispatch, getState) => {
     const { currentUser } = getState()
     dispatch(loading(true))
-    const body={tile: {...tile, userId: currentUser._id}, currentUserId: currentUser._id}
-    console.log(body)
+    const body={...tile, userId: currentUser._id}
     api.patch(`games/${gameId}`, body)
     .then(res => {
         // dispatch({type: GAME_UPDATED, payload: res.body})
