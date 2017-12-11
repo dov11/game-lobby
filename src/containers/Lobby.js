@@ -25,8 +25,21 @@ class Lobby extends PureComponent {
 	}
 
   isJoinable(game) {
-    // implement later
-    return true
+    if ( game.grid.length > 1 ) {
+      // Filter only the Tiles open to click
+      const openTiles = game.grid.filter((tile) => {
+        if ( tile.clicked === "true" ) {
+          // console.log('clicked');
+          return false
+        } else {
+          return tile
+        }
+      })
+      // only return isJoinable when there's open Tiles to click
+      if ( openTiles.length > 0 ) {
+        return true
+      }
+    }
   }
 
   isPlayer(game) {
@@ -35,7 +48,7 @@ class Lobby extends PureComponent {
   }
 
   renderGame = (game, index) => {
-    console.log(game);
+    // console.log(game);
     let ActionIcon = this.isJoinable(game) ? JoinGameIcon : WatchGameIcon
     if (this.isPlayer(game)) ActionIcon = game.isPlayable ? PlayGameIcon : WaitingIcon
 
