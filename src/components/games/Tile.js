@@ -30,5 +30,7 @@ class Tile extends PureComponent {
   }
 }
 
-const mapDispatchtoProps = {patchGame: patchGame}
+const mapDispatchtoProps = {
+  patchGame: patchGame,
+}
 export default connect(null, mapDispatchtoProps)(Tile)
