@@ -43,10 +43,14 @@ class GameContainer extends PureComponent {
     // this.props.connectToSocket()
   }
 
-  leaveGame() {
-    console.log('leave game');
-    return false
-  }
+  // leaveGame() {
+  //   console.log("leave")
+  //   // const gameId = this.props.match.params.gameI
+  //   // const bodyActionLeave = {
+  //   //   user_action: 'user_left'
+  //   // }
+  //   // this.props.patchGame(bodyActionLeave, gameId)
+  // }
 
   renderTiles = (tile, index) => {
 
