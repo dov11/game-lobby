@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { connect as connectToSocket } from '../actions/websocket'
 import { fetchOneGame } from '../actions/games/fetch'
 import patchGame from '../actions/games/patch'
+import { push } from 'react-router-redux'
 // import CreateGameButton from '../components/games/CreateGameButton'
 // import Paper from 'material-ui/Paper'
 // import Menu from 'material-ui/Menu'
@@ -20,24 +21,21 @@ import './GameContainer.css'
 class GameContainer extends PureComponent {
 
   componentWillMount() {
-    const { game } = this.props
+    const { game, currentUser } = this.props
     const gameId = this.props.match.params.gameId
     // console.log('gameId:', gameId);
+    if ( !currentUser ) {
+      this.props.push('/sign-in')
+    }
 
     const bodyAction = {
-    	user_action: 'user_joined'
+      user_action: 'user_joined'
     }
     this.props.patchGame(bodyAction, gameId)
 
-    // .then() {
-    //
-    // }
-    //
     this.props.fetchOneGame(gameId)
 
-
     this.props.connectToSocket()
-    // this.props.connectToSocket()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -89,7 +87,7 @@ const mapStateToProps = ({ currentUser, games }, { match }) => {
   // const currentPlayer = game && game.players.filter((p) => (p.userId === currentUser._id))[0]
 
   return {
-    // currentPlayer,
+    currentUser,
     game,
     // isPlayer: !!currentPlayer,
     // hasTurn: currentPlayer && currentPlayer._id === currentUser._id,
@@ -100,7 +98,8 @@ const mapStateToProps = ({ currentUser, games }, { match }) => {
 const mapDispatchtoProps = {
   patchGame: patchGame,
   fetchOneGame,
-  connectToSocket
+  connectToSocket,
+  push,
 }
 
 export default connect(mapStateToProps, mapDispatchtoProps)(GameContainer)
