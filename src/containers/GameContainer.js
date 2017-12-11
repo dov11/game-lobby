@@ -42,16 +42,7 @@ class GameContainer extends PureComponent {
     // this.props.fetchGames()
     // this.props.connectToSocket()
   }
-  //
-  // goToGame = (gameId) => {
-  //   // implement later
-  // }
-  //
-  // isJoinable(game) {
-  //   // implement later
-  //   return true
-  // }
-  //
+
   leaveGame() {
     console.log('leave game');
     return false
@@ -69,7 +60,7 @@ class GameContainer extends PureComponent {
   render() {
     const { game } = this.props
     if ( !game ) return null
-    // const { game } = this.props.games
+
     return (
       <div className="GameContainer">
         <h1>GameContainer!</h1>
@@ -89,7 +80,6 @@ const mapStateToProps = ({ currentUser, games }, { match }) => {
   return {
     currentUser,
     game,
-    // isPlayer: !!currentPlayer,
     // hasTurn: currentPlayer && currentPlayer._id === currentUser._id,
     // isJoinable: game && !currentPlayer && game.players.length < 2
   }
