@@ -22,9 +22,7 @@ class GameContainer extends PureComponent {
     const { game } = this.props
     const gameId = this.props.match.params.gameId
     // console.log('gameId:', gameId);
-    if (!game) {
-      this.props.fetchOneGame(gameId)
-    }
+    this.props.fetchOneGame(gameId)
     this.props.connectToSocket()
     // this.props.connectToSocket()
   }
