@@ -1,6 +1,6 @@
 .grid-3x3 .Tile {
   width: 150px;
-  height: 150px;
+  height: 150px !important;
   line-height: 150px; }
 
 .Tile {
