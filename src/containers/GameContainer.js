@@ -24,7 +24,7 @@ class GameContainer extends PureComponent {
     const { game, currentUser } = this.props
     const gameId = this.props.match.params.gameId
     // console.log('gameId:', gameId);
-    if ( !currentUser ) {
+    if ( currentUser == null ) {
       this.props.push('/sign-in')
     }
 
