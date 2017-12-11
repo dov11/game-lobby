@@ -57,7 +57,7 @@ class Lobby extends PureComponent {
         key={index}
         onClick={this.goToGame(game._id)}
         rightIcon={<ActionIcon />}
-        primaryText={game.title} />
+        primaryText={'Minesweeper #' + game._id.replace(/[a-z]/g,'').substr(game._id.replace(/[a-z]/g), 5)} />
     )
   }
 
