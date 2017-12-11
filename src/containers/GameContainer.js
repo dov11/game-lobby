@@ -71,6 +71,7 @@ class GameContainer extends PureComponent {
         <h1>{'Minesweeper #' + game._id.replace(/[a-z]/g,'').substr(game._id.replace(/[a-z]/g), 5)}</h1>
         <PlayerScores currentUser={this.props.currentUser} players={game.players} />
         <div className="Grid grid-3x3">{ game.grid.map(this.renderTiles) }</div>
+        <h1>{game.winner}</h1>
         <LeaveGame onClick={this.leaveGame} gameId={this.props.match.params.gameId} />
       </div>
     )

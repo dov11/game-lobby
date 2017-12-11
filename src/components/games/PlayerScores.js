@@ -14,12 +14,21 @@ class PlayerScores extends PureComponent {
 		)
 	}
   render() {
-		console.log('PLAYER:',this.props.players);
     return (
       <div className="PlayerScores">
 				<ul>
 					<li className="header-player player"><span className="player-name">Players:</span> <span className="player-score">Score:</span></li>
-					{ this.props.players.map(this.renderPlayers) }
+					{ this.props.players
+						.sort(function(a,b) {
+							if (a.score>b.score){
+								return -1
+							}
+							if (b.score>a.score){
+								return 1
+							}
+							return 0
+						})
+						.map(this.renderPlayers) }
 				</ul>
 			</div>
 		)
