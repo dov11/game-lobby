@@ -21,7 +21,6 @@ class Lobby extends PureComponent {
   }
 
   goToGame = gameId => event => {
-		// this.props.joinGame()
 		this.props.push(`/game/${gameId}`)
 	}
 
