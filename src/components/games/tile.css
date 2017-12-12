@@ -1,7 +1,14 @@
 .grid-3x3 .Tile {
-  width: 150px;
+  min-width: 150px !important;
+  width: 150px !important;
   height: 150px !important;
-  line-height: 150px; }
+  line-height: 150px !important; }
+
+.grid-5x5 .Tile {
+  min-width: 90px !important;
+  width: 90px !important;
+  height: 90px !important;
+  line-height: 90px !important; }
 
 .Tile {
   display: inline-block;
