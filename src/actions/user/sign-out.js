@@ -1,12 +1,12 @@
 import { push } from 'react-router-redux'
 import ApiClient from '../../api/client'
-import { connect, disconnect } from '../websocket'
-import {
-  APP_LOADING,
-  APP_DONE_LOADING,
-  LOAD_ERROR,
-  LOAD_SUCCESS
-} from '../loading'
+import { disconnect } from '../websocket'
+// import {
+//   APP_LOADING,
+//   APP_DONE_LOADING,
+//   LOAD_ERROR,
+//   LOAD_SUCCESS
+// } from '../loading'
 export const USER_SIGNED_OUT = 'USER_SIGNED_OUT'
 
 const api = new ApiClient()

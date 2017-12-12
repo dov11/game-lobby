@@ -6,8 +6,6 @@ import {
 import {
   GAME_CREATED,
   GAME_UPDATED,
-  GAME_REMOVED,
-  GAME_PLAYERS_UPDATED,
 } from '../actions/games/subscribe'
 
 const WINNER_DETERMINED="WINNER_DETERMINED"

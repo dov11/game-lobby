@@ -1,6 +1,6 @@
 import { replace } from 'react-router-redux'
 import ApiClient from '../../api/client'
-import { connect, disconnect } from '../websocket'
+import { connect } from '../websocket'
 import {
   APP_LOADING,
   APP_DONE_LOADING,

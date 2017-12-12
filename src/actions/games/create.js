@@ -3,9 +3,9 @@ import { push } from 'react-router-redux'
 
 import { loading } from '../loading'
 import { LOAD_ERROR } from '../loading'
-import {
-  GAME_CREATED,
-} from './subscribe'
+// import {
+//   GAME_CREATED,
+// } from './subscribe'
 
 const api = new ApiClient()
 

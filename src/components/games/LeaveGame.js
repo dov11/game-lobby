@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import FlatButton from 'material-ui/FlatButton';
-import FontIcon from 'material-ui/FontIcon';
+// import FontIcon from 'material-ui/FontIcon';
 import LeaveIcon from 'material-ui/svg-icons/action/eject';
 import patchGame from '../../actions/games/patch'
 import { connect } from 'react-redux'
