@@ -7,13 +7,12 @@ const api = new ApiClient()
 export const GAME_UPDATED = 'GAME_UPDATED'
 
 
-export default (tile, gameId)=> {
+export default (bodyAction, gameId)=> {
   return (dispatch, getState) => {
     const { currentUser } = getState()
     dispatch(loading(true))
-    const body={tile: {...tile, userId: currentUser._id}, currentUserId: currentUser._id}
-    console.log(body)
-    api.patch(`games/${gameId}`, body)
+    const bodyRequest={...bodyAction, userId: currentUser._id, userName: currentUser.name}
+    api.patch(`games/${gameId}`, bodyRequest)
     .then(res => {
         // dispatch({type: GAME_UPDATED, payload: res.body})
         dispatch({type: loading(false).type})
@@ -22,3 +21,22 @@ export default (tile, gameId)=> {
 
   }
 }
+
+/*
+body {
+	user: userId,
+	user_action: user_joined
+}
+body {
+	user: userId,
+	user_action: user_left
+}
+
+body {
+	user: userId,
+	tile_action: ...tile
+}
+
+
+
+*/

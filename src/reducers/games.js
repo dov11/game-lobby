@@ -10,6 +10,8 @@ import {
   GAME_PLAYERS_UPDATED,
 } from '../actions/games/subscribe'
 
+const WINNER_DETERMINED="WINNER_DETERMINED"
+
 export default (state=[], {type, payload} ={}) => {
   // console.log('>>> REDUCER = CALLED: TYPE: ', type);
   switch(type) {
@@ -22,7 +24,16 @@ export default (state=[], {type, payload} ={}) => {
         return { ...payload }
       }
       return game
-})
+		})
+
+    case WINNER_DETERMINED :
+    return state.map((game) => {
+      if (game._id === payload._id) {
+        console.log("here")
+        return { ...payload }
+      }
+      return game
+		})
 
     case FETCHED_GAMES :
       return [...payload]
@@ -31,12 +42,17 @@ export default (state=[], {type, payload} ={}) => {
       // console.log('FETCH_ONE_GAME:', payload );
       // return [...payload]
       // @todo: error detection when gameId doesn't exist??
-      return state.map((game) => {
-        if (game._id === payload._id) {
-          return { ...payload }
-        }
-        return game
-      })
+      if ( state.length < 1 ) {
+        // console.log('fetch one game:', payload);
+        return [{ ...payload }]
+      } else {
+        return state.map((game) => {
+          if (game._id === payload._id) {
+            return { ...payload }
+          }
+          return game
+        })
+      }
 
 		default :
       return state

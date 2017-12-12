@@ -5,18 +5,30 @@ import './PlayerScores.css'
 
 class PlayerScores extends PureComponent {
 	// renderPlayers = (player, score, index) {
-	renderPlayers = (player, index) => {
+	renderPlayers = (players, index) => {
+		const test = (players.userName === this.props.currentUser.name) ? 'current-user' : ''
 		return (
-			<li key={index} className="player"><span className="player-name">{player._id}</span> <span className="player-score">??</span></li>
+			<li key={index} className={'player ' + test}>
+			<span className="player-name">{players.userName}</span> <span className="player-score">{players.score}</span>
+			</li>
 		)
 	}
   render() {
-		console.log('PLAYER:',this.props.player);
     return (
       <div className="PlayerScores">
 				<ul>
 					<li className="header-player player"><span className="player-name">Players:</span> <span className="player-score">Score:</span></li>
-					{ this.props.player.map(this.renderPlayers) }
+					{ this.props.players
+						.sort(function(a,b) {
+							if (a.score>b.score){
+								return -1
+							}
+							if (b.score>a.score){
+								return 1
+							}
+							return 0
+						})
+						.map(this.renderPlayers) }
 				</ul>
 			</div>
 		)

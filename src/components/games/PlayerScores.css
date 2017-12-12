@@ -7,18 +7,26 @@
     margin: 0;
     padding: 20px; }
   .PlayerScores li {
-    margin: 10px 0;
+    padding: 10px 10px;
     list-style: none; }
   .PlayerScores .header-player {
     font-weight: bold;
-    text-decoration: underline;
     margin-bottom: 30px; }
-  .PlayerScores .player-name, .PlayerScores .player-score {
-    display: inline-block; }
+  .PlayerScores .player-name,
+  .PlayerScores .player-score {
+    display: inline-block;
+    margin-left: -4px; }
   .PlayerScores .player-name {
     color: #202020;
-    width: 74%; }
+    width: 75%; }
   .PlayerScores .player-score {
     width: 25%;
     color: #202020;
     text-align: right; }
+
+.current-user {
+  background-color: #D32F2F; }
+
+.current-user .player-name,
+.current-user .player-score {
+  color: white; }
