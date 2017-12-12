@@ -65,19 +65,9 @@ class GameContainer extends PureComponent {
     const { game } = this.props
     if ( !game ) return null
     // console.log('game:',game);
-    const availableTiles = game.grid.filter((tile) => {
-      if (tile.clicked == 'false') return tile
-      return false
-    })
-
-    let gameWinner = false
-    if ( availableTiles == 0 ) {
-      gameWinner = this.props.currentUser.name
-    }
 
     return (
       <div className="GameContainer">
-        {/*gameWinner ? gameWinner : null*/}
         <h1>{'Minesweeper #' + game._id.replace(/[a-z]/g,'').substr(game._id.replace(/[a-z]/g), 5)}</h1>
         <PlayerScores currentUser={this.props.currentUser} players={game.players} />
         <div className="Grid grid-5x5">{ game.grid.map(this.renderTiles) }</div>
