@@ -1,12 +1,10 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { disconnect } from '../actions/websocket'
+// import { disconnect } from '../actions/websocket'
 import { connect as connectToSocket } from '../actions/websocket'
 import fetchGames from '../actions/games/fetch'
 import CreateGameButton from '../components/games/CreateGameButton'
 import Paper from 'material-ui/Paper'
-import Menu from 'material-ui/Menu'
-import MenuItem from 'material-ui/MenuItem'
 import {List, ListItem} from 'material-ui/List'
 import WatchGameIcon from 'material-ui/svg-icons/image/remove-red-eye'
 import JoinGameIcon from 'material-ui/svg-icons/social/person-add'
@@ -55,7 +53,7 @@ class Lobby extends PureComponent {
     if (this.isPlayer(game)) ActionIcon = game.isPlayable ? PlayGameIcon : WaitingIcon
 
     let secondayText = game.players.length + ' player'
-    if (game.players.length != 1) secondayText += 's'
+    if (game.players.length !== 1) secondayText += 's'
     return (
       <ListItem
         key={index}
@@ -68,9 +66,6 @@ class Lobby extends PureComponent {
   }
 
   render() {
-    const bodyAction = {
-      user_action: 'user_left'
-    }
     return (
       <div className="Lobby">
         <h1>Lobby!</h1>

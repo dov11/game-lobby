@@ -21,7 +21,7 @@ import './GameContainer.css'
 class GameContainer extends PureComponent {
 
   componentWillMount() {
-    const { game, currentUser } = this.props
+    const { currentUser } = this.props
     const gameId = this.props.match.params.gameId
     // console.log('gameId:', gameId);
     if ( currentUser == null ) {
