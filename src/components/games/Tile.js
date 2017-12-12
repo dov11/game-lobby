@@ -9,7 +9,7 @@ import './tile.css'
 
 class Tile extends PureComponent {
   renderContent = () => {
-    if (this.props.tile.content==="-1") return null
+    if (this.props.tile.content===-1) return null
     return this.props.tile.content
   }
   clickTile(e) {
@@ -35,8 +35,8 @@ class Tile extends PureComponent {
         onClick={this.clickTile.bind(this)}
         onContextMenu={this.clickTile.bind(this)}
         disabled={this.props.tile.clicked !== "false" ? true : false}
-        icon={this.props.tile.clicked !== "false" && this.props.tile.content === "-1" && <MineIcon/>}
-        icon={this.props.tile.clicked === "right" && this.props.tile.content === "-1" && <FlagIcon/>}
+        icon={this.props.tile.clicked !== "false" && this.props.tile.content === -1 && <MineIcon/>}
+        icon={this.props.tile.clicked === "right" && this.props.tile.content === -1 && <FlagIcon/>}
         >
 				&nbsp;{this.props.tile.clicked !== "false" ? this.renderContent() : null}&nbsp;
       </FlatButton>
