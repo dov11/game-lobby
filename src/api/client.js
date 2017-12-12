@@ -6,7 +6,8 @@ export default class ApiClient {
 
   constructor(host, options = {}) {
     // this.host = host || 'http://' + window.location.hostname + ':3030'
-    this.host = host || 'http://192.168.178.39:3030'
+    this.host = host || 'http://localhost:3030'
+    // this.host = host || 'http://192.168.178.39:3030'
     this.options = { ...this.defaultOptions, ...options }
   }
 

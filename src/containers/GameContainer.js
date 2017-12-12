@@ -73,7 +73,7 @@ class GameContainer extends PureComponent {
 
     return (
       <div className="GameContainer">
-        {gameWinner ? gameWinner : null}
+        {/*gameWinner ? gameWinner : null*/}
         <h1>{'Minesweeper #' + game._id.replace(/[a-z]/g,'').substr(game._id.replace(/[a-z]/g), 5)}</h1>
         <PlayerScores currentUser={this.props.currentUser} players={game.players} />
         <div className="Grid grid-5x5">{ game.grid.map(this.renderTiles) }</div>
