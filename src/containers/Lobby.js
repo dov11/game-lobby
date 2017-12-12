@@ -19,6 +19,7 @@ class Lobby extends PureComponent {
   componentWillMount() {
     this.props.fetchGames()
     this.props.connectToSocket()
+
   }
 
   goToGame = gameId => event => {
@@ -55,7 +56,6 @@ class Lobby extends PureComponent {
 
     let secondayText = game.players.length + ' player'
     if (game.players.length != 1) secondayText += 's'
-
     return (
       <ListItem
         key={index}
@@ -68,6 +68,9 @@ class Lobby extends PureComponent {
   }
 
   render() {
+    const bodyAction = {
+      user_action: 'user_left'
+    }
     return (
       <div className="Lobby">
         <h1>Lobby!</h1>
